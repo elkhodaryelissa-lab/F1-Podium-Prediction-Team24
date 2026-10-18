@@ -1,0 +1,104 @@
+{
+  "target": "podium",
+  "splits": {
+    "train": [
+      2006,
+      2019
+    ],
+    "validation": [
+      2020,
+      2021
+    ],
+    "test": [
+      2022,
+      2100
+    ]
+  },
+  "final_features": [
+    "grid_adj",
+    "front_row",
+    "grid_minus_qual",
+    "gap_to_pole_pct",
+    "reached_q2",
+    "reached_q3",
+    "driver_age",
+    "drv_podium_rate",
+    "drv_avg_finish",
+    "drv_dnf_rate",
+    "drv_starts_before",
+    "con_podium_rate",
+    "con_avg_finish",
+    "con_mech_dnf_rate",
+    "drv_pos_before",
+    "con_pos_before"
+  ],
+  "final_groups": {
+    "grid": [
+      "grid_adj",
+      "front_row",
+      "grid_minus_qual"
+    ],
+    "qualifying": [
+      "gap_to_pole_pct",
+      "reached_q2",
+      "reached_q3"
+    ],
+    "context": [
+      "driver_age"
+    ],
+    "driver_form": [
+      "drv_podium_rate",
+      "drv_avg_finish",
+      "drv_dnf_rate",
+      "drv_starts_before"
+    ],
+    "constructor_form": [
+      "con_podium_rate",
+      "con_avg_finish",
+      "con_mech_dnf_rate"
+    ],
+    "standings": [
+      "drv_pos_before",
+      "con_pos_before"
+    ]
+  },
+  "all_candidate_groups": {
+    "grid": [
+      "grid_adj",
+      "is_pit_lane_start",
+      "front_row",
+      "grid_minus_qual",
+      "grid_penalty_places"
+    ],
+    "qualifying": [
+      "qual_pos",
+      "gap_to_pole_pct",
+      "reached_q2",
+      "reached_q3"
+    ],
+    "context": [
+      "driver_age",
+      "is_home",
+      "round"
+    ],
+    "driver_form": [
+      "drv_podium_rate",
+      "drv_avg_finish",
+      "drv_dnf_rate",
+      "drv_starts_before"
+    ],
+    "constructor_form": [
+      "con_podium_rate",
+      "con_avg_finish",
+      "con_mech_dnf_rate"
+    ],
+    "standings": [
+      "drv_points_before",
+      "drv_pos_before",
+      "drv_pts_frac_leader",
+      "con_points_before",
+      "con_pos_before"
+    ]
+  },
+  "preprocessing": "clip at train 0.5/99.5 percentiles -> median impute + missing indicator -> standardize; fitted on train 2006-2019 only"
+}
